@@ -1,0 +1,23 @@
+/* 파이차트  */
+
+.piechart-control-tile{
+  width:32%;
+  height:40vw;
+}
+
+#flexPie {
+  flex-grow: 1.5;
+  padding-top:10%;
+  padding-bottom:10%;
+  padding-left:10%;
+  padding-right:10%;
+  height:inherit;
+}
+
+
+g.wj-series-group rect:hover {
+  stroke-width: 0;
+}
+.wj-flexchart .wj-state-selected {
+  stroke-dasharray:none;
+}

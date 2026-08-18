@@ -1,0 +1,101 @@
+.container {
+  wi 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+/* 대쉬보드 헤더 */
+.wijmo-dashboard-header{
+  padding: 15px 40px;
+  background: #fff;
+  border-bottom: 1px solid #d8e3e7;
+  display:flex;
+  justify-content:space-between;
+}
+
+.icon{
+  max-width:28px;
+  margin:4px 15px;
+}
+.wijmo-dashboard-header-sub-area,.dashboard-header-sub-area{
+  display:flex;
+  align-items:center;
+}
+.dashboard-header {
+  height: 10vh;
+  background: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.dashboard-header:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 50px;
+  background: #4336fb;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.dashboard-header-text {
+  margin-left: 35px;
+  font-size: 35px;
+  font-weight: bold;
+}
+/* 요소 타일 */
+.align-element {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom:5%;
+}
+.gauage-tile{
+  background:#fff;
+}
+
+.control-tile {
+  width: 23%;
+  background: #fff;
+  position:relative;
+  border-radius: 10px;
+  overflow:hidden;
+}
+
+/* span 요소에 대한 설정 */
+.control-tile span {
+  position: absolute; /* 절대 위치 지정 */
+  padding: 5px 10px; /* 내부 여백 설정 */
+  z-index: 1; /* 다른 요소 위에 나타나도록 설정 */
+}
+
+/* 대쉬보드 메인 타일 */
+.dashboard-main-tile {
+  margin: 6vh 4vh;
+}
+
+.charts-tile {
+  gap: 30px;
+}
+
+.chart-control-tile{
+  width:65%;
+  display:block;
+  height:40vw;
+  padding:1.5%;
+}
+
+
+
+
+
+/* 차트 툴팁 */
+.wj-tooltip {
+  background-color: #f8f9fa;
+  color: #333;
+  border: none;
+}
+

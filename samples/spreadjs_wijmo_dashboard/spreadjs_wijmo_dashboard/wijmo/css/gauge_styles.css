@@ -1,0 +1,79 @@
+.wj-gauge {
+  margin: auto;
+/*   overflow: hidden; */
+}
+
+div.row.gauage-tile{
+  height:100%;
+  border-radius:15px;
+}
+.gauge-text {
+  margin-top:10px;
+  font-weight:bold;
+  font-size:1em;
+}
+.wj-radialgauge .wj-value {
+  font-weight:bold;
+  font-size:23px;
+}
+
+.gauage-tile-subwrapper{
+  margin-top:2%;
+  text-align:center;
+}
+
+.gauage-tile-subwrapper .control-tile{
+  display:block;
+  height:70%;
+  padding-bottom:2%
+}
+
+
+.wj-radialgauge {
+  margin-top:5%;
+  height: auto;
+  width: 14vw;
+  background: #fff !important;
+}
+
+.gauge-holder {
+  width: 80%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.02);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+.wj-gauge .wj-face path {
+  stroke: white;
+}
+
+#theRadialGaugeOne .wj-pointer{
+  fill:#B898EA;
+}
+
+
+#theRadialGaugeTwo .wj-pointer{
+  fill :#08D1A4;
+}
+
+#theRadialGaugeThree .wj-pointer{
+  fill: #FFD07C;
+}
+
+.wj-gauge .wj-pointer {
+  fill :#FF8774;
+}
+
+.wj-gauge .wj-needle {
+  fill: black;
+  stroke: black;
+}
+
+.gauge-bottom-text{
+  text-align:center;
+}
+.gauge-bottom-text.gauge-value-text{
+  font-size:1.2em;
+  font-weight:bold;
+}

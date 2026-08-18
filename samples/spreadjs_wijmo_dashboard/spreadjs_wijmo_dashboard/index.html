@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="spreadjs culture" content="ko-kr" />
+    <!--     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    <title>Wijmo & SpreadJS Dashboard</title>
+    <!--  SpreadJS 레퍼런싱  -->
+    <link href="https://cdn.mescius.com/spreadjs/hosted/css/gc.spread.sheets.excel2013white.17.0.10.css" rel="stylesheet"/>
+    <link href="https://cdn.mescius.co.kr/installers/SpreadJS/demo/17.0.10/gc.spread.sheets.designer.17.0.10.min.css" rel="stylesheet"/>
+    <!--  Wijmo 레퍼런싱  -->
+    <link href="https://cdn.mescius.com/wijmo/5.20231.904/styles/wijmo.min.css" rel="stylesheet"/>
+    <!-- SpreadJS css에 영향 줌 -->
+    <!--     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link href="./wijmo/css/wijmo_styles.css" rel="stylesheet" />
+        <link href="./wijmo/css/gauge_styles.css" rel="stylesheet" />
+     <link href="./wijmo/css/pie_styles.css" rel="stylesheet" />
+     <link href="./wijmo/css/chart_styles.css" rel="stylesheet" />
+    <link href="./wijmo/css/grid_styles.css" rel="stylesheet" />
+     <link href="./wijmo/css/popup_styles.css" rel="stylesheet" />
+    <link href="./wijmo/css/tabpanel_styles.css" rel="stylesheet" />
+       <link href="./wijmo/css/autocomplete_styles.css" rel="stylesheet" />
+    <style>
+      @font-face {
+        font-family: 'SUITE-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+      }
+      body{
+        font-family: 'SUITE-Regular';
+        background-color:#f0f0f0 !important;
+        margin:0;
+      }
+      <!--  spreadjs-->
+      .designer {
+        height: calc(100% - 15px);
+      }
+
+      #sp {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        position: relative;
+      }
+
+      #gc-designer-container {
+        height: 40%;
+      }
+
+      .add-row-button {
+        background-image: url('./spreadjs/image/addRow.png');
+        background-size: 35px 35px;
+      }
+
+      .update-to-grid-button {
+        background-image: url('./spreadjs/image/update.png');
+        background-size: 35px 35px;
+      }
+
+      .work {
+        background-image: url('./spreadjs/image/work.png');
+        background-size: 35px 35px;
+      }
+
+      #loadingContainer{
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        z-index: 100;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="loadingContainer">
+      로딩 중....
+    </div>
+    <div class="container">
+
+      <div id="theTabPanel">
+
+        <div >
+
+          <a>Wijmo(Viewer)</a>
+          <div>
+            <div class="wijmo-dashboard-header">
+              <div class="wijmo-dashboard-header-sub-area autocomplete-area">
+                <img id="sideBarVisible" class="icon" src="./images/three-horizontal-lines-icon.png"> 
+                <div id="wj-header-autoComplete"></div>
+              </div>
+              <div class="wijmo-dashboard-header-sub-area icon-area">
+                <img id="alarmBtn" class="icon" src="./images/bell-line-icon.png"> 
+                <img id="messageBtn" class="icon" src="./images/envelope-line-icon.png">
+                <img id="settingBtn" class="icon" src="./images/setting-line-icon.png">
+              </div>
+            </div>
+            <div class="dashboard-header">
+              <div class="dashboard-header-text">Wijmo 대쉬보드</div>
+              <div class="dashboard-header-sub-area icon-area" style="margin-right:5%">
+                <img class="icon" src="./images/avatar-icon.png"> 
+                <div>User</div>
+              </div>
+            </div>
+            <div class="dashboard-main-tile">
+              <!--                   <h2>신용카드 점유율</h2> -->
+              <div class="row gauage-tile" >
+                <div style="
+                            font-size: 1.4em;
+                            padding-top: 2%;
+                            font-weight: bold;
+                            text-align: center;
+                            ">카드 유형별 사용 점유률</div>
+                <div class="align-element gauage-tile-subwrapper">
+                  <div class="control-tile"> 
+
+                    <div class="gauge-text">ColonialVoice</div>          
+                    <div  id="theRadialGaugeOne"></div>
+                    <div class="gauge-bottom-text gauge-value-text"></div> 
+                  </div>
+                  <div class="control-tile">
+                    <div class="gauge-text">Distinguish</div>      
+                    <div  id="theRadialGaugeTwo"></div>
+                    <div class="gauge-bottom-text gauge-value-text">test</div> 
+                  </div>
+                  <div class="control-tile">
+                    <div class="gauge-text">SuperiorCard</div>      
+                    <div  id="theRadialGaugeThree"></div>
+                    <div class="gauge-bottom-text gauge-value-text">test</div> 
+
+                  </div>
+                  <div class="control-tile">
+                    <div class="gauge-text">Vista</div>      
+                    <div  id="theRadialGaugeFour"></div>
+                    <div class="gauge-bottom-text gauge-value-text">test</div> 
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="row align-element">
+
+                <div class="control-tile chart-control-tile">
+                  <div class="test">
+
+                    <button id="btnZoomIn" class="btn btn-default">확대</button>
+                    <button id="btnZoomOut" class="btn btn-default">축소</button>
+                    <button id="btnResetZoom" class="btn btn-default">확대/축소 리셋</button>
+                  </div>
+                  <div style="height:inherit">
+                    <div id="chart" class="col-md-8"></div>
+                    <div id="theChartSelector" class="chart-selector"></div>
+                  </div>
+                </div>
+
+                <div class="control-tile piechart-control-tile">
+                  <div id="flexPie" class="col-md-3"></div>
+                </div>
+
+              </div>
+
+              <div class="row align-element">
+
+                <div id="theGrid"></div>
+                <div id="gridPanel">
+                  <button id="exportGridbtn" class="exportGrid">내보내기</button>
+                  <div class="gridPanel_label">
+                    <label>
+                      <input id="isGrouping" type="checkbox" checked="checked" />
+                      Grouping 설정
+                    </label></div>
+                  <div class="gridPanel_label"><label>
+                    <input id="isFiltering" type="checkbox" checked="checked" />
+                    filtering 설정
+                    </label></div>
+                </div>
+              </div>
+            </div>
+            <!--  alarmPopup -->
+            <div id="alarmPopup">
+              <div class="modal-header alarm-header">
+                <span>3개의 알림이 있습니다.</span>
+              </div>
+              <div class="modal-body alarm-body">
+                <div class="alarm-list">
+                  <div  class="alarm-item">
+                    <div class="alarm-icon"> 
+                      <img class="alarm-icon" src="./images/private-icon.svg"> 
+                    </div>
+                    <div class="alarm-text">
+                      <div >로그인 IP가 변경되었습니다.</div>
+                      <span>방금</span>
+                    </div>
+                  </div>
+
+                  <div  class="alarm-item">
+                    <div class="alarm-icon"> 
+                      <img class="alarm-icon" src="./images/edit-round-line-icon.svg"> 
+                    </div>
+                    <div class="alarm-text">
+                      <div >User의 글에 댓글이 달렸습니다.</div>
+                      <span>10분 전</span>
+                    </div>
+                  </div>
+
+                  <div  class="alarm-item">
+                    <div class="alarm-icon"> 
+                      <img class="alarm-icon" src="./images/like-heart-round-icon.svg"> 
+                    </div>
+                    <div class="alarm-text">
+                      <div >User의 글에 마리아님이 좋아요를 눌렀습니다.</div>
+                      <span>30분 전</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!--  messagePopup -->
+            <div id="messagePopup">
+              <div class="modal-header alarm-header">
+                <span>3개의 알림이 있습니다.</span>
+              </div>
+              <div class="modal-body alarm-body">
+                <div class="alarm-list">
+                  <div  class="alarm-item">
+                    <div class="alarm-icon"> 
+                      <img class="alarm-icon avatar-icon" src="./images/avatar-icon.png"> 
+                    </div>
+                    <div class="alarm-text">
+                      <div class="msg-name">마리아</div>
+                      <div class="msg-text">안녕하세요 보고드린 내용 확인하셨을까요?</div>
+                      <span>2:12pm</span>
+                    </div>
+                  </div>
+
+                  <div  class="alarm-item">
+                    <div class="alarm-icon"> 
+                      <img class="alarm-icon" src="./images/avatar-icon.png">
+                    </div>
+                    <div class="alarm-text">
+                      <div class="msg-name">박원철</div>
+                      <div class="msg-text">test해 본 결과 큰 이상은 확인되지 않았습니다. 별도로 다운로드 받으신게 있을까요?</div>
+                      <span>11:30am</span>
+                    </div>
+                  </div>
+
+                  <div  class="alarm-item">
+                    <div class="alarm-icon"> 
+                      <img class="alarm-icon" src="./images/avatar-icon.png">
+                    </div>
+                    <div class="alarm-text">
+                      <div class="msg-name">김선인</div>
+                      <div class="msg-text">로그인되었습니다. 감사합니다 :)</div>
+                      <span>10:48am</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!--  settingPopup -->
+            <div id="settingPopup">
+              <div class="modal-header setting-header">
+                <h2>설정</h2>
+              </div>
+              <div class="modal-body setting-body">
+                <div class="setting-list">
+                  <div  class="setting-item">
+                    <div class="setting-title"> 
+                      <div>설정 1</div>
+                      <div class="switch">
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="switch-slide round"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <p>
+                      설정 1에 대한 설명입니다.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div>
+          <a>SpreadJS(Editor)</a>
+          <div id="sp">
+            <div id="gc-designer-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+<script>
+  window.onload = async function () {
+    // const loadingTip = addLoadingTip();
+    let cardData,gridData;
+
+    await $.ajax({
+      url: "https://demodata.mescius.io/adventureworks/api/v1/creditCards",
+      dataType: 'json',
+      success: function (data) {
+        cardData = data;
+        gridData = structuredClone(cardData);
+        // console.log(data);
+      },
+      error: function (ex) {
+        alert('Exception:' + ex);
+      }
+    });
+    let customerData;
+    await $.ajax({
+      url: "https://demodata.mescius.io/adventureworks/api/v1/customers",
+      dataType: 'json',
+      success: function (data) {
+        customerData = data;
+      },
+      error: function (ex) {
+        alert('Exception:' + ex);
+      }
+    });
+
+    let chartData;
+    await $.ajax({
+      // url: "https://demodata.mescius.io/contoso/api/v1/sales",
+      url:"https://assets.codepen.io/975719/sales_by_year__.json",
+      dataType: 'text',
+      success: function (data) {
+        chartData = JSON.parse(data);
+      },
+      error: function (ex) {
+        alert('Exception:' + ex);
+        console.log(ex)
+      }
+    });
+
+
+    // SpreadS
+    await loadSpreadJS(cardData,customerData,chartData);
+    //Wijmo
+    await loadWijmo(gridData,customerData,chartData);
+    const loadingTip = document.getElementById("loadingContainer")
+    loadingTip.remove();
+  }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Wijmo -->
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.min.js"></script>
+<!-- Wijmo 컨트롤 (옵션, 필요한 컨트롤 만 추가) -->
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.grid.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.chart.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.input.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.gauge.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.nav.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.xlsx.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.grid.filter.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.grid.xlsx.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/wijmo.chart.interaction.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.mescius.com/wijmo/5.20241.9/controls/cultures/wijmo.culture.ko.min.js"></script>
+<script src="wijmo/wijmo_overview.js"></script>
+<script src="wijmo/grid.js"></script>
+<script src="wijmo/chart.js"></script>
+<script src="wijmo/pie.js"></script>
+<script src="wijmo/gauge.js"></script>
+<script src="wijmo/popup.js"></script>
+<script src="wijmo/tabpanel.js"></script>
+<script src="wijmo/autocomplete.js"></script>
+<!--  <script src="wijmo/AggregateSeries.js" type="module"></script> -->
+<!--  SpreadJS  -->
+
+
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/gc.spread.sheets.all.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.shapes.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.charts.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.slicers.17.0.10.min.js"></script>
+
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.print.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.barcode.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.pdf.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.pivot.pivottables.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.tablesheet.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.ganttsheet.17.0.10.min.js"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.formulapanel.17.0.10.min.js"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.report.reportsheet.17.0.10.min.js"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.io.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/interop/gc.spread.excelio.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.com/spreadjs/hosted/scripts/resources/ko/gc.spread.sheets.resources.ko.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.co.kr/installers/SpreadJS/demo/17.0.10/gc.spread.sheets.designer.resource.ko.17.0.10.min.js" type="text/javascript"></script>
+<script src="https://cdn.mescius.co.kr/installers/SpreadJS/demo/17.0.10/gc.spread.sheets.designer.all.17.0.10.min.js" type="text/javascript"></script>
+<script src="spreadjs/spreadjs_overview.js"></script>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="spreadjs culture" content="ko-kr" />
+    <title>온라인 견적서 시스템</title>
+    <link href="https://cdn.mescius.com/spreadjs/hosted/css/gc.spread.sheets.excel2013white.18.2.2.css" rel="stylesheet"
+        type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <h1>견적서 생성</h1>
+        <div>
+            <button>회원가입</button>
+            <button>로그인</button>
+        </div>
+    </header>
+
+    <div class="top-buttons">
+        <div class="buttons-left">
+            <button id="new">새 견적서</button>
+        </div>
+        <div class="buttons-right">
+            <button id="customerList">거래처 리스트</button>
+            <button id="loadList">품목 목록 불러오기</button>
+            <input type="file" id="fileInput" accept=".xlsx" />
+            <button id="create">견적서 생성</button>
+            <div class='v-line'></div>
+            <button id="exportPDF">PDF 저장</button>
+            <button id="exportExcel">Excel 저장</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="section-title">견적서 정보 입력</div>
+
+            <div class="left-panel-left">
+                <div class="form-group">
+                    <label>생성일</label>
+                    <input type="date" id="created-date">
+                </div>
+
+                <div class="form-group">
+                    <label>견적번호</label>
+                    <input type="number" value="1">
+                </div>
+
+                <div class="form-group">
+                    <label>담당자</label>
+                    <select id="manager">
+                        <option selected>김성태</option>
+                        <option>김남희</option>
+                        <option>최화경</option>
+                        <option>김선희</option>
+                        <option>박효정</option>
+                        <option>예준성</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>거래유형</label>
+                    <select>
+                        <option selected>세금계산서</option>
+                        <option>카드</option>
+                        <option>카드(면세)</option>
+                        <option>소매</option>
+                        <option>소매(면세)</option>
+                        <option>현금영수증</option>
+                        <option>현금영수증(면세)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>결제조건</label>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="left-panel-right">
+                <div class="form-group">
+                    <label>거래처</label>
+                    <input type="text" id="customer" placeholder="더블 클릭 시 거래처 리스트가 나타납니다.">
+                </div>
+
+                <div class="form-group">
+                    <label>출하창고</label>
+                    <input type="text">
+                </div>
+
+                <div class="form-group">
+                    <label>통화</label>
+                    <select id="currency">
+                        <option selected>KRW</option>
+                        <option>USD</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>참조</label>
+                    <input type="text">
+                </div>
+
+                <div class="form-group">
+                    <label>유효기간 (일)</label>
+                    <input type="number" value="15" id="validity-period">
+                </div>
+            </div>
+            <div class="left-panel-bottom">
+                <div>
+                    <div class="section-title">품목 목록</div>
+                </div>
+                <div id="spreadsheet-container"></div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div id="preview"></div>
+        </div>
+    </div>
+
+    <!-- 모달 팝업 -->
+    <div class="modal-overlay" id="customerListContainer">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>거래처 리스트<span style="font-size: small;color:rgb(184, 164, 164)"> - 리스트 클릭 시 회사명이 입력됩니다.</span></span>
+                <span class="modal-close" id="closeModalBtn">&times;</span>
+            </div>
+
+            <div id="customerListSpread"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript"
+        src="https://cdn.mescius.com/spreadjs/hosted/scripts/gc.spread.sheets.all.18.2.2.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.shapes.18.2.2.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.print.18.2.2.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.pdf.18.2.2.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.io.18.2.2.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.mescius.com/spreadjs/hosted/scripts/resources/ko/gc.spread.sheets.resources.ko.18.2.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

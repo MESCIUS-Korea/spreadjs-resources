@@ -1,0 +1,101 @@
+/* grid */
+.wj-flexgrid {
+  height: 500px;
+  padding: 1rem;
+  border:none;
+}
+
+.wj-flexgrid
+.wj-cells
+.wj-row:hover
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) {
+  transition: all 0.5s;
+  background: #0288d1;
+  color: white;
+  font-weight: bold;
+}
+
+.wj-cells .wj-cell.wj-state-selected {
+  background: #4dd0e1;
+}
+
+.wj-flexgrid .wj-header {
+  color: black;
+  text-align: center;
+}
+
+.wj-flexgrid .wj-cell:not(.wj-group) {
+  transition: background 0.4s;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.wj-flexgrid .wj-marquee,
+.wj-flexgrid .wj-header {
+  transition: all 0.4s;
+}
+
+.wj-flexgrid .wj-header {
+  background-color: #fff;
+}
+.wj-group{
+  background:#FFD07C !important;
+  color:white !important;
+}
+
+.wj-column-header {
+  border-bottom: 1px solid #e3e0e0;
+  border-right: none;
+}
+.wj-header {
+  border-right: none;
+  border-left: none;
+}
+
+
+/* 그리드 에러 표시 디자인*/
+.form-group {
+  margin-right: 8px;
+}
+
+.form-group > label {
+  margin-right: 3px;
+}
+
+.form-group input:invalid {
+  border-color: red !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+/* 그리드 내보내기, 그룹핑, 필터링 패널  */
+
+#gridPanel {
+  border-radius: 8px;
+  min-width: 14em;
+  padding: 30px 20px;
+  background-color: white;
+  margin-left: 10px;
+}
+
+
+/* 그리드 내보내기 버튼 스타일링  */
+
+#exportGridbtn {
+  font-family: 'SUITE-Regular';
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 56px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: #42A5E2;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.gridPanel_label {
+  margin-top : 20px;
+}
