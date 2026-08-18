@@ -1,0 +1,83 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* 상단 메뉴 */
+.sheet-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 52px;
+  padding: 0 16px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* 왼쪽 시트 버튼 묶음 */
+.sheet-menu-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sheet-button {
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sheet-button:hover {
+  background: #f3f4f6;
+}
+
+.sheet-button.active {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 행 추가 버튼 */
+.add-row-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 6px;
+
+  background: #16a34a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.add-row-button:hover {
+  background: #15803d;
+}
+
+.add-row-button:active {
+  transform: translateY(1px);
+}
+
+#ss {
+  flex: 1;
+  min-height: 0;
+}

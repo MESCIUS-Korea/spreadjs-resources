@@ -1,0 +1,112 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "properties": {
+        "Budget": {
+            "dataFieldType": "table",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "예산ID": {
+                        "dataFieldType": "text",
+                        "type": "string"
+                    },
+                    "연도": {
+                        "type": "string"
+                    },
+                    "부서": {
+                        "type": "string"
+                    },
+                    "비용항목": {
+                        "type": "string"
+                    },
+                    "연간예산": {
+                        "type": "string"
+                    },
+                    "1월": {
+                        "type": "string"
+                    },
+                    "2월": {
+                        "type": "string"
+                    },
+                    "3월": {
+                        "type": "string"
+                    },
+                    "4월": {
+                        "type": "string"
+                    },
+                    "5월": {
+                        "type": "string"
+                    },
+                    "6월": {
+                        "type": "string"
+                    },
+                    "7월": {
+                        "type": "string"
+                    },
+                    "8월": {
+                        "type": "string"
+                    },
+                    "9월": {
+                        "type": "string"
+                    },
+                    "10월": {
+                        "type": "string"
+                    },
+                    "11월": {
+                        "type": "string"
+                    },
+                    "12월": {
+                        "type": "string"
+                    },
+                    "메모": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "Expenses": {
+            "dataFieldType": "table",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "지출일자": {
+                        "type": "string"
+                    },
+                    "증빙번호": {
+                        "type": "string"
+                    },
+                    "부서": {
+                        "type": "string"
+                    },
+                    "비용항목": {
+                        "type": "string"
+                    },
+                    "지출내용": {
+                        "type": "string"
+                    },
+                    "거래처": {
+                        "type": "string"
+                    },
+                    "금액": {
+                        "type": "string"
+                    },
+                    "결제수단": {
+                        "type": "string"
+                    },
+                    "승인상태": {
+                        "type": "string"
+                    },
+                    "담당자": {
+                        "type": "string"
+                    },
+                    "메모": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "type": "object"
+}

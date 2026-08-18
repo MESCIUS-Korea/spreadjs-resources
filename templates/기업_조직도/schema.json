@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "기획팀": {
+      "dataFieldType": "table",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "이름": { "type": "string" },
+          "직책": { "type": "string" },
+          "이메일": { "type": "string" }
+        }
+      }
+    },
+    "인사팀": {
+      "dataFieldType": "table",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "이름": { "type": "string" },
+          "직책": { "type": "string" },
+          "이메일": { "type": "string" }
+        }
+      }
+    },
+    "총무팀": {
+      "dataFieldType": "table",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "이름": { "type": "string" },
+          "직책": { "type": "string" },
+          "이메일": { "type": "string" }
+        }
+      }
+    },
+    "마케팅팀": {
+      "dataFieldType": "table",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "이름": { "type": "string" },
+          "직책": { "type": "string" },
+          "이메일": { "type": "string" }
+        }
+      }
+    },
+    "영업팀": {
+      "dataFieldType": "table",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "이름": { "type": "string" },
+          "직책": { "type": "string" },
+          "이메일": { "type": "string" }
+        }
+      }
+    }
+  }
+}

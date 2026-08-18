@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SpreadJS, 판매 실적 보고서 추가 수정중</title>
+
+  <meta name="spreadjs culture" content="ko-kr" />
+  <link rel='stylesheet'
+    href='https://cdn.mescius.com/spreadjs/hosted/css/gc.spread.sheets.excel2016colorful.18.0.6.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <div class="relative max-w-3xl mx-auto p-6 space-y-6">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between md:items-center gap-4">
+      <h1 class="text-3xl font-bold">판매 실적보고서</h1>
+      <div class="absolute top-6 right-10 flex gap-2 z-50">
+        <button onclick="spreadPrint()"
+          class="flex items-center gap-1 bg-white border px-4 py-2 rounded-md shadow hover:bg-gray-100">
+          🖨️ 인쇄
+        </button>
+        <button onclick="spreadPDF()"
+          class="flex items-center gap-1 bg-white border px-4 py-2 rounded-md shadow hover:bg-gray-100">
+          📄 PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div id="filter-buttons" class="flex gap-2">
+      <button class="tab-btn active px-4 py-2 rounded-md" data-tab="hong">홍길동</button>
+      <button class="tab-btn px-4 py-2 rounded-md" data-tab="kim">김지수</button>
+      <button class="tab-btn px-4 py-2 rounded-md" data-tab="oh">오영수</button>
+      <button class="tab-btn px-4 py-2 rounded-md" data-tab="goh">고시영</button>
+    </div>
+
+    <!-- Report -->
+    <div id="ss" style="width:713px;height:980px;border: 1px solid"></div>
+
+  </div>
+
+  <script src='https://code.jquery.com/jquery-latest.js'></script>
+  <script src='https://cdn.mescius.com/spreadjs/hosted/scripts/gc.spread.sheets.all.18.0.6.min.js'></script>
+  <script src='https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.shapes.18.0.6.min.js'></script>
+  <script src='https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.charts.18.0.6.min.js'></script>
+  <script src='https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.print.18.0.6.min.js'></script>
+  <script src='https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.pdf.18.0.6.min.js'></script>
+  <script src='https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.io.18.0.6.min.js'></script>
+  <script src='https://cdn.mescius.com/spreadjs/hosted/scripts/resources/ko/gc.spread.sheets.resources.ko.18.0.6.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js'></script>
+  <script src='https://cdn.mescius.co.kr/installers/license/codepen_v18_demo.js'></script>
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
